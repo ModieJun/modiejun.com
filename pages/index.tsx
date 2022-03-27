@@ -12,6 +12,7 @@ import {
   ListIcon,
   HStack,
   ColorModeScript,
+  Link,
 } from "@chakra-ui/react";
 import { UnlockIcon } from "@chakra-ui/icons";
 import type { NextPage } from "next";
@@ -19,8 +20,14 @@ import Head from "next/head";
 import { Nav } from "../components/Nav";
 import nextjs from "../public/nextjs.svg";
 import theme from "../theme";
+import { Data, getJsonFromFile } from "../utils/read_json";
+import ContentSection from "../components/Section";
 
-const Home: NextPage = () => {
+type HomePageProps = {
+  data: Data[];
+};
+
+const Home = ({ data }: HomePageProps) => {
   const textColor = useColorModeValue("gray.700", "gray.100");
   return (
     <Box
@@ -38,7 +45,7 @@ const Home: NextPage = () => {
       <Nav />
 
       {/* Content */}
-      <Container maxW={{ sm: "container.xs", base: "container.md" }}>
+      <Container maxW={{ sm: "container.xs", base: "container.md" }} pb="20">
         <VStack spacing={4}>
           {/* Chakra loads from the public directory for the images */}
           <Image
@@ -63,74 +70,91 @@ const Home: NextPage = () => {
             Industry as a <Text as="i">Tech Consultant @IBM </Text>👨🏻‍💻
           </Text>
           {/* Accolades */}
-          <Divider />
-          <VStack w={"full"} alignItems="start" spacing={2}>
-            <Heading as={"h1"}>Experiences</Heading>
-            <Box w={"full"}>
-              <Text>Application Consultant - Data Team </Text>
-              <List spacing={2}>
-                <ListItem>
-                  <ListIcon as={UnlockIcon} color={textColor} />
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={UnlockIcon} color={textColor} />
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={UnlockIcon} color={textColor} />
-                </ListItem>
-              </List>
-            </Box>
-            <Divider />
-            <Heading as={"h1"}>Education</Heading>
-            <Box w={"full"}>
-              <Text>Application Consultant - Data Team </Text>
-              <List spacing={2}>
-                <ListItem>
-                  <ListIcon as={UnlockIcon} color={textColor} />
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={UnlockIcon} color={textColor} />
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={UnlockIcon} color={textColor} />
-                </ListItem>
-              </List>
-            </Box>
-            <Divider />
-            <Heading as={"h1"}>Tech Stack</Heading>
-            <HStack justifyContent={"space-between"} w="full" pt={8}>
-              <Image
-                src="/python.png"
-                boxSize={"auto"}
-                alt="python image"
-                w="100px"
-                rounded={"lg"}
-              ></Image>
-              <Image
-                src="/docker.webp"
-                boxSize={"auto"}
-                alt="Docker image"
-                w="100px"
-                fit={"cover"}
-                rounded={"lg"}
-              ></Image>
-              <Image
-                src="/nestjs.svg"
-                boxSize={"auto"}
-                w="100px"
-                alt="Nestjs image"
-                fit={"cover"}
-                rounded={"lg"}
-              ></Image>
-            </HStack>
-          </VStack>
-
-          {/* Footer */}
-          <Box h={20}></Box>
         </VStack>
+
+        <VStack w={"full"} alignItems="start" spacing={8} my="16">
+          {data.map((ele) => {
+            return (
+              <VStack spacing={4} key={ele.title}>
+                <Divider />
+                <ContentSection
+                  key={ele.title}
+                  title={ele.title}
+                  items={ele.content}
+                />
+              </VStack>
+            );
+          })}
+          <Heading as={"h1"}>Tech Stack</Heading>
+          <HStack justifyContent={"space-between"} w="full">
+            <Image
+              src="/python.png"
+              boxSize={"auto"}
+              alt="python image"
+              w="100px"
+              rounded={"lg"}
+            ></Image>
+            <Image
+              src="/docker.webp"
+              boxSize={"auto"}
+              alt="Docker image"
+              w="100px"
+              fit={"cover"}
+              rounded={"lg"}
+            ></Image>
+            <Image
+              src="/nestjs.svg"
+              boxSize={"auto"}
+              w="100px"
+              alt="Nestjs image"
+              fit={"cover"}
+              rounded={"lg"}
+            ></Image>
+          </HStack>
+        </VStack>
+
+        {/* Footer */}
+        <Box py="5">
+          <HStack justifyContent={"space-between"}>
+            <VStack alignItems={"start"}>
+              <Link href="https://blog.modiejun.com/about">Contact me</Link>
+              <Link href="https://blog.modiejun.com">Blog</Link>
+            </VStack>
+            <VStack>
+              <List>
+                <ListItem>
+                  <HStack>
+                    {/* <ListIcon as=""></ListIcon> */}
+                    <Link>Instagram</Link>
+                  </HStack>
+                </ListItem>
+                <ListItem>
+                  <HStack>
+                    {/* <ListIcon as=""></ListIcon> */}
+                    <Link href="https://www.linkedin.com/in/junjie-lin-modiejun/">
+                      LinkedIn
+                    </Link>
+                  </HStack>
+                </ListItem>
+              </List>
+            </VStack>
+          </HStack>
+        </Box>
+        <Text my="" fontStyle="italic" fontWeight="light">
+          @Copyright JUNJIE LIN 2022
+        </Text>
       </Container>
     </Box>
   );
+};
+
+export const getStaticProps = () => {
+  const data = getJsonFromFile();
+  return {
+    props: {
+      data: data,
+    },
+  };
 };
 
 export default Home;

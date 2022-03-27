@@ -1,0 +1,30 @@
+[
+  {
+    "title": "experience",
+    "content": [
+      {
+        "heading": "Application Consultant ",
+        "subheading": "IBM-CPA BICC Data Team",
+        "date": "2021 SEP     -      Present",
+        "info": [
+          "Develop data etl processing pipeline using Airflow, Informatica and depoyed onto AWS Ec2, DynamoDB and Redshift ",
+          "second"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "education",
+    "content": [
+      {
+        "heading": "MSc Business Information Systems ",
+        "subheading": "City University of Hong Kong",
+        "date": "2020 Sep     -     2021 JUN",
+        "info": [
+          "Project Mangement and Quality Assurance",
+          "Business Digital Transformation  - Focusing on business process re-engineering and IT within an organization"
+        ]
+      }
+    ]
+  }
+]
