@@ -14,12 +14,9 @@ import {
   ColorModeScript,
   Link,
 } from "@chakra-ui/react";
-import { UnlockIcon } from "@chakra-ui/icons";
-import type { NextPage } from "next";
 import Head from "next/head";
 import { Nav } from "../components/Nav";
-import nextjs from "../public/nextjs.svg";
-import theme from "../theme";
+import theme from "../theme/theme";
 import { Data, getJsonFromFile } from "../utils/read_json";
 import ContentSection from "../components/Section";
 

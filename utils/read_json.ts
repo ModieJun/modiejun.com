@@ -14,6 +14,5 @@ export type Data = {
 };
 
 export const getJsonFromFile = (): Data[] => {
-  console.log(data);
   return data;
 };
