@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build:image": "docker buildx build --builder graviton-reserve ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
