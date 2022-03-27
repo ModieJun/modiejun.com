@@ -3,15 +3,16 @@ import {
   Container,
   HStack,
   Icon,
+  IconButton,
   Switch,
   Text,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 export const Nav = () => {
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box
       h={{ sm: "10", base: "20" }}
@@ -25,14 +26,22 @@ export const Nav = () => {
             textColor={useColorModeValue("gray.700", "gray.100")}
             fontSize={{ base: "md", md: "lg" }}
           >
-            Save your eyes from the strain
+            {colorMode === "light"
+              ? "Save your eyes from the strain"
+              : "Light up the experience"}
           </Text>
           <ArrowForwardIcon
             w={5}
             h={5}
             textColor={useColorModeValue("gray.700", "gray.100")}
           />
-          <Switch onChange={toggleColorMode} size={"lg"} />
+          <IconButton
+            aria-label="Toggle Light or dark mode"
+            onClick={toggleColorMode}
+            bgColor={useColorModeValue("gray.200", "gray.600")}
+            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            textColor={useColorModeValue("gray.700", "gray.100")}
+          />
         </HStack>
       </Container>
     </Box>

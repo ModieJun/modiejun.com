@@ -11,12 +11,14 @@ import {
   ListItem,
   ListIcon,
   HStack,
+  ColorModeScript,
 } from "@chakra-ui/react";
 import { UnlockIcon } from "@chakra-ui/icons";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Nav } from "../components/Nav";
 import nextjs from "../public/nextjs.svg";
+import theme from "../theme";
 
 const Home: NextPage = () => {
   const textColor = useColorModeValue("gray.700", "gray.100");
@@ -29,7 +31,9 @@ const Home: NextPage = () => {
     >
       <Head>
         <title>ModieJun</title>
+        <meta lang="en" />
       </Head>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       {/* Nav */}
       <Nav />
 
@@ -66,13 +70,13 @@ const Home: NextPage = () => {
               <Text>Application Consultant - Data Team </Text>
               <List spacing={2}>
                 <ListItem>
-                  <ListIcon as={UnlockIcon} color="gray.200" />
+                  <ListIcon as={UnlockIcon} color={textColor} />
                 </ListItem>
                 <ListItem>
-                  <ListIcon as={UnlockIcon} color="gray.200" />
+                  <ListIcon as={UnlockIcon} color={textColor} />
                 </ListItem>
                 <ListItem>
-                  <ListIcon as={UnlockIcon} color="gray.200" />
+                  <ListIcon as={UnlockIcon} color={textColor} />
                 </ListItem>
               </List>
             </Box>
@@ -82,13 +86,13 @@ const Home: NextPage = () => {
               <Text>Application Consultant - Data Team </Text>
               <List spacing={2}>
                 <ListItem>
-                  <ListIcon as={UnlockIcon} color="gray.200" />
+                  <ListIcon as={UnlockIcon} color={textColor} />
                 </ListItem>
                 <ListItem>
-                  <ListIcon as={UnlockIcon} color="gray.200" />
+                  <ListIcon as={UnlockIcon} color={textColor} />
                 </ListItem>
                 <ListItem>
-                  <ListIcon as={UnlockIcon} color="gray.200" />
+                  <ListIcon as={UnlockIcon} color={textColor} />
                 </ListItem>
               </List>
             </Box>
@@ -98,12 +102,14 @@ const Home: NextPage = () => {
               <Image
                 src="/python.png"
                 boxSize={"auto"}
+                alt="python image"
                 w="100px"
                 rounded={"lg"}
               ></Image>
               <Image
                 src="/docker.webp"
                 boxSize={"auto"}
+                alt="Docker image"
                 w="100px"
                 fit={"cover"}
                 rounded={"lg"}
@@ -112,6 +118,7 @@ const Home: NextPage = () => {
                 src="/nestjs.svg"
                 boxSize={"auto"}
                 w="100px"
+                alt="Nestjs image"
                 fit={"cover"}
                 rounded={"lg"}
               ></Image>
