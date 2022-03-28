@@ -27,7 +27,7 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
   const textColor = useColorModeValue("gray.700", "gray.100");
   return (
     <VStack w={"full"} alignItems="start" spacing={4}>
-      <Heading as={"h1"}>{title.toUpperCase()}</Heading>
+      <Heading fontSize={"2xl"}>{title.toUpperCase()}</Heading>
       {items.map((ele) => {
         return (
           <Box w="full" key={ele.heading + ele.subheading}>
@@ -42,12 +42,16 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
                 {ele.date}
               </Text>
             </Stack>
-            <List spacing={2} my="4">
+            <List spacing={4} my="4">
               {ele.info.map((info) => {
                 return (
-                  <ListItem key={info} alignItems="center">
-                    <ListIcon as={UnlockIcon} color={textColor} />
-                    {info}
+                  <ListItem key={info} fontSize={"sm"}>
+                    <Flex>
+                      <Box>
+                        <ListIcon as={UnlockIcon} color={textColor} />
+                      </Box>
+                      <Text textAlign={"justify"}>{info}</Text>
+                    </Flex>
                   </ListItem>
                 );
               })}
@@ -55,6 +59,7 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
           </Box>
         );
       })}
+      {/* Boxes  */}
     </VStack>
   );
 };

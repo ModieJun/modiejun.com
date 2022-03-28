@@ -4,11 +4,12 @@
     "content": [
       {
         "heading": "Application Consultant ",
-        "subheading": "IBM-CPA BICC Data Team",
+        "subheading": "IBM-CPA Business Intelligence Team",
         "date": "2021 SEP     -      Present",
         "info": [
-          "Develop data etl processing pipeline using Airflow, Informatica and depoyed onto AWS Ec2, DynamoDB and Redshift ",
-          "second"
+          "Responsible for engineering, developing and integrating data ETL processing pipelines using Airflow(Python), Informatica and deploying onto AWS Ec2, DynamoDB and Redshift",
+          "Model and design reliable data warehousing strategies on AWS Redshift based on analytic requirements",
+          "Solved and enhanced existing multi data-source ETL processing logic for legacy workflow as well as designed and implemented table and data structure migration solutions"
         ]
       }
     ]
@@ -19,10 +20,19 @@
       {
         "heading": "MSc Business Information Systems ",
         "subheading": "City University of Hong Kong",
-        "date": "2020 Sep     -     2021 JUN",
+        "date": "2020 SEP     -     2021 JUN",
         "info": [
           "Project Mangement and Quality Assurance",
           "Business Digital Transformation  - Focusing on business process re-engineering and IT within an organization"
+        ]
+      },
+      {
+        "heading": "BEng. Computer Science",
+        "subheading": "Jinan University (Guangzhou)",
+        "date": "2016 SEP     -     2020 JUL",
+        "info": [
+          "Modules:   Java Fundamentals , Database Applicatoin Development, Data structures , Algorithm Design",
+          "Research Topic (Bachelors Thesis) on Human Activity Recognition on daily activity movements using sampled data from Accelerometer and Gyroscopes of Smartphone devices provided by by the National Natural Science Foundation of China (No. 61501207). Utilized MATLAB for analysing, cleaning and generating feature and Implemented experiments using Python with Pandas, Scikit-learn and TensorFlow Libraries to run prediction models such as Support Vector Machines, Multi-layer Perceptron, Convolutional neural Network."
         ]
       }
     ]
