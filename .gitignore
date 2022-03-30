@@ -32,3 +32,6 @@ yarn-error.log*
 # lock files
 yarn.lock
 package-lock.json
+
+#Other 
+docker-compose.yml
