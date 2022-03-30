@@ -9,10 +9,12 @@ import {
   Divider,
   List,
   ListItem,
-  ListIcon,
   HStack,
   ColorModeScript,
   Link,
+  Grid,
+  GridItem,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { Nav } from "../components/Nav";
@@ -42,7 +44,7 @@ const Home = ({ data }: HomePageProps) => {
       <Nav />
 
       {/* Content */}
-      <Container maxW={{ sm: "container.xs", base: "container.md" }} pb="20">
+      <Container maxW={{ sm: "container.xs", base: "container.lg" }} pb="20">
         <VStack spacing={4}>
           {/* Chakra loads from the public directory for the images */}
           <Image
@@ -61,27 +63,55 @@ const Home = ({ data }: HomePageProps) => {
             Developer | Tech..no Funk | bruh
           </Text>
           {/* Description */}
-          <Text letterSpacing={1} textAlign="justify">
-            Hi! Hi! I go by Johnson! Im a African-born chinese curios about Tech
-            Gadgets 📺, Cloud ☁️ and DevOps. Im currently work in the Tech
-            Industry as a <Text as="i">Tech Consultant @IBM </Text>👨🏻‍💻
-          </Text>
-          {/* Accolades */}
+          <Container maxW={{ sm: "container.sm", base: "container.md" }}>
+            <Text letterSpacing={1} textAlign="justify">
+              Hi! Hi! I go by Johnson! Im a African-born chinese curious about
+              Tech Gadgets 📺, Cloud ☁️ and DevOps. Im currently work in the
+              Tech Industry as a <Text as="i">Tech Consultant @IBM </Text>👨🏻‍💻
+            </Text>
+          </Container>
         </VStack>
 
+        {/* Accolades */}
+        <Divider p={8} />
         <VStack w={"full"} alignItems="start" spacing={8} my="16">
-          {data.map((ele) => {
+          {/* {data.map((ele) => {
             return (
               <VStack spacing={4} key={ele.title}>
-                <Divider />
                 <ContentSection
                   key={ele.title}
                   title={ele.title}
                   items={ele.content}
                 />
+                <Divider />
               </VStack>
             );
-          })}
+          })} */}
+
+          <Grid
+            templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2,1fr)" }}
+            gap={{ base: 16, md: 2 }}
+            w="full"
+            h="auto"
+          >
+            {data.map((ele, index) => {
+              return (
+                <GridItem
+                  key={ele.title}
+                  colSpan={1}
+                  rowStart={{ md: index + 1 }}
+                  colStart={{ md: (index + 1) % 2 == 0 ? 2 : 1 }}
+                >
+                  <ContentSection
+                    key={ele.title}
+                    title={ele.title}
+                    items={ele.content}
+                  />
+                </GridItem>
+              );
+            })}
+          </Grid>
+
           <Heading as={"h1"}>Tech Stack</Heading>
           <HStack justifyContent={"space-between"} w="full">
             <Image

@@ -35,13 +35,21 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
               justifyContent={"space-between"}
               direction={["column", "row"]}
             >
-              <Text fontStyle="italic"> {ele.heading} - </Text>
-              <Text fontStyle="italic">{ele.subheading}</Text>
-              <Spacer />
-              <Text fontWeight="light" fontStyle="oblique">
-                {ele.date}
+              <Text fontStyle="italic" fontWeight={"semibold"}>
+                {" "}
+                {ele.heading}
               </Text>
+              <Spacer />
+              <Text fontStyle="italic">{ele.subheading}</Text>
             </Stack>
+            <Text
+              fontWeight="light"
+              textColor={"gray.600"}
+              fontSize={"sm"}
+              fontStyle="oblique"
+            >
+              {ele.date}
+            </Text>
             <List spacing={4} my="4">
               {ele.info.map((info) => {
                 return (
