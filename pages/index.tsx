@@ -21,6 +21,7 @@ import { Nav } from "../components/Nav";
 import theme from "../theme/theme";
 import { Data, getJsonFromFile } from "../utils/read_json";
 import ContentSection from "../components/Section";
+import { FadeInView, FadeInY } from "../components/animated/FadeInView";
 
 type HomePageProps = {
   data: Data[];
@@ -75,19 +76,6 @@ const Home = ({ data }: HomePageProps) => {
         {/* Accolades */}
         <Divider p={8} />
         <VStack w={"full"} alignItems="start" spacing={8} my="16">
-          {/* {data.map((ele) => {
-            return (
-              <VStack spacing={4} key={ele.title}>
-                <ContentSection
-                  key={ele.title}
-                  title={ele.title}
-                  items={ele.content}
-                />
-                <Divider />
-              </VStack>
-            );
-          })} */}
-
           <Grid
             templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2,1fr)" }}
             gap={{ base: 16, md: 2 }}
@@ -102,11 +90,13 @@ const Home = ({ data }: HomePageProps) => {
                   rowStart={{ md: index + 1 }}
                   colStart={{ md: (index + 1) % 2 == 0 ? 2 : 1 }}
                 >
-                  <ContentSection
-                    key={ele.title}
-                    title={ele.title}
-                    items={ele.content}
-                  />
+                  <FadeInY duration={0.7}>
+                    <ContentSection
+                      key={ele.title}
+                      title={ele.title}
+                      items={ele.content}
+                    />
+                  </FadeInY>
                 </GridItem>
               );
             })}
@@ -114,29 +104,35 @@ const Home = ({ data }: HomePageProps) => {
 
           <Heading as={"h1"}>Tech Stack</Heading>
           <HStack justifyContent={"space-between"} w="full">
-            <Image
-              src="/python.png"
-              boxSize={"auto"}
-              alt="python image"
-              w="100px"
-              rounded={"lg"}
-            ></Image>
-            <Image
-              src="/docker.webp"
-              boxSize={"auto"}
-              alt="Docker image"
-              w="100px"
-              fit={"cover"}
-              rounded={"lg"}
-            ></Image>
-            <Image
-              src="/nestjs.svg"
-              boxSize={"auto"}
-              w="100px"
-              alt="Nestjs image"
-              fit={"cover"}
-              rounded={"lg"}
-            ></Image>
+            <FadeInView>
+              <Image
+                src="/python.png"
+                boxSize={"auto"}
+                alt="python image"
+                w="100px"
+                rounded={"lg"}
+              ></Image>
+            </FadeInView>
+            <FadeInView duration={0.6}>
+              <Image
+                src="/docker.webp"
+                boxSize={"auto"}
+                alt="Docker image"
+                w="100px"
+                fit={"cover"}
+                rounded={"lg"}
+              ></Image>
+            </FadeInView>
+            <FadeInView duration={0.7}>
+              <Image
+                src="/nestjs.svg"
+                boxSize={"auto"}
+                w="100px"
+                alt="Nestjs image"
+                fit={"cover"}
+                rounded={"lg"}
+              ></Image>
+            </FadeInView>
           </HStack>
         </VStack>
 
