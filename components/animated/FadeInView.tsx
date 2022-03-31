@@ -25,7 +25,11 @@ export const FadeInView = ({ duration, children }: FadeInViewProps) => {
   );
 };
 
-export const FadeInY = ({ duration, children }) => {
+type FadeInYProps = {
+  duration?: number;
+  children: ReactNode;
+};
+export const FadeInY = ({ duration, children }: FadeInYProps) => {
   return (
     <motion.div
       initial="hidden"

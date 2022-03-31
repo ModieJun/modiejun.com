@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build:image": "docker buildx build --builder graviton-reserve ",
+    "build:image": "docker build --platform linux/arm64/v8 -t modiejun/profile-modiejun:v1 .",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -13,7 +13,6 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { randomUUID } from "crypto";
 import { ReactChildren } from "react";
 import { Content } from "../utils/read_json";
 
@@ -36,7 +35,6 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
               direction={["column", "row"]}
             >
               <Text fontStyle="italic" fontWeight={"semibold"}>
-                {" "}
                 {ele.heading}
               </Text>
               <Spacer />
@@ -44,7 +42,7 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
             </Stack>
             <Text
               fontWeight="light"
-              textColor={"gray.600"}
+              textColor={textColor}
               fontSize={"sm"}
               fontStyle="oblique"
             >

@@ -14,7 +14,9 @@ import {
   Link,
   Grid,
   GridItem,
-  SimpleGrid,
+  Button,
+  Progress,
+  LinkOverlay,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { Nav } from "../components/Nav";
@@ -22,13 +24,27 @@ import theme from "../theme/theme";
 import { Data, getJsonFromFile } from "../utils/read_json";
 import ContentSection from "../components/Section";
 import { FadeInView, FadeInY } from "../components/animated/FadeInView";
+import { DownloadIcon, EditIcon } from "@chakra-ui/icons";
+import { RESUME_URL } from "../utils/resources";
+import { motion, useViewportScroll } from "framer-motion";
+import ProgressBar from "../components/ProgressBar";
 
 type HomePageProps = {
   data: Data[];
 };
 
+const DownloadResume = () => {
+  var anchor = document.createElement("a");
+  anchor.href = RESUME_URL;
+  anchor.target = "_blank";
+  anchor.download = "JUNJIE_RESUME";
+  anchor.click();
+};
+
 const Home = ({ data }: HomePageProps) => {
   const textColor = useColorModeValue("gray.700", "gray.100");
+  const { scrollYProgress } = useViewportScroll();
+
   return (
     <Box
       // h={"100vh"}
@@ -42,6 +58,9 @@ const Home = ({ data }: HomePageProps) => {
       </Head>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       {/* Nav */}
+      <Box pos="sticky" top={0} left={0} w="full">
+        <ProgressBar scrollYProgress={scrollYProgress} />
+      </Box>
       <Nav />
 
       {/* Content */}
@@ -66,16 +85,34 @@ const Home = ({ data }: HomePageProps) => {
           {/* Description */}
           <Container maxW={{ sm: "container.sm", base: "container.md" }}>
             <Text letterSpacing={1} textAlign="justify">
-              Hi! Hi! I go by Johnson! Im a African-born chinese curious about
-              Tech Gadgets 📺, Cloud ☁️ and DevOps. Im currently work in the
-              Tech Industry as a <Text as="i">Tech Consultant @IBM </Text>👨🏻‍💻
+              Hi! Hi! I go by Johnson! Im a African-born Chinese curious about
+              Tech 📺,, Cloud ☁️ and DevOps 🛠 . Im currently work in the Tech
+              Industry as a <Text as="i">Tech Consultant @IBM </Text>👨🏻‍💻
             </Text>
+            {/* Buttons for funny things */}
+            <Text mt={4} fontStyle="italic">
+              My stuff that you might be interested in:
+            </Text>
+            <HStack w="full" justifyContent="space-around" py={4}>
+              <Button
+                leftIcon={<DownloadIcon />}
+                fontWeight="light"
+                onClick={DownloadResume}
+              >
+                Resume
+              </Button>
+              <Button leftIcon={<EditIcon />} fontWeight="light">
+                <LinkOverlay href="https://blog.modiejun.com" isExternal={true}>
+                  My Blog
+                </LinkOverlay>
+              </Button>
+            </HStack>
           </Container>
         </VStack>
 
         {/* Accolades */}
-        <Divider p={8} />
-        <VStack w={"full"} alignItems="start" spacing={8} my="16">
+        <Divider my={12} />
+        <VStack w={"full"} alignItems="start" spacing={8}>
           <Grid
             templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2,1fr)" }}
             gap={{ base: 16, md: 2 }}
@@ -100,6 +137,27 @@ const Home = ({ data }: HomePageProps) => {
                 </GridItem>
               );
             })}
+            {/* Images */}
+            <GridItem colSpan={1} rowStart={2} colStart={1}>
+              <HStack w="full" h="full" justifyContent={"center"}>
+                <FadeInY duration={0.9}>
+                  <Box
+                    rounded="lg"
+                    overflow={"hidden"}
+                    h={{ base: "350px", md: "350px" }}
+                    w={{ base: "300px", md: "300px" }}
+                  >
+                    <Image
+                      src="/graduation.jpeg"
+                      alt="Graduation Photo"
+                      objectFit={"cover"}
+                      w="full"
+                      h="full"
+                    />
+                  </Box>
+                </FadeInY>
+              </HStack>
+            </GridItem>
           </Grid>
 
           <Heading as={"h1"}>Tech Stack</Heading>
@@ -113,7 +171,7 @@ const Home = ({ data }: HomePageProps) => {
                 rounded={"lg"}
               ></Image>
             </FadeInView>
-            <FadeInView duration={0.6}>
+            <FadeInView duration={0.7}>
               <Image
                 src="/docker.webp"
                 boxSize={"auto"}
@@ -123,7 +181,7 @@ const Home = ({ data }: HomePageProps) => {
                 rounded={"lg"}
               ></Image>
             </FadeInView>
-            <FadeInView duration={0.7}>
+            <FadeInView duration={0.8}>
               <Image
                 src="/nestjs.svg"
                 boxSize={"auto"}
@@ -164,7 +222,7 @@ const Home = ({ data }: HomePageProps) => {
           </HStack>
         </Box>
         <Text my="" fontStyle="italic" fontWeight="light">
-          @Copyright JUNJIE LIN 2022
+          @All Rights Reserved JUNJIE LIN 2022
         </Text>
       </Container>
     </Box>
