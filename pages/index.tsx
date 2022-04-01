@@ -15,7 +15,6 @@ import {
   Grid,
   GridItem,
   Button,
-  Progress,
   LinkOverlay,
 } from "@chakra-ui/react";
 import Head from "next/head";
@@ -24,9 +23,9 @@ import theme from "../theme/theme";
 import { Data, getJsonFromFile } from "../utils/read_json";
 import ContentSection from "../components/Section";
 import { FadeInView, FadeInY } from "../components/animated/FadeInView";
-import { DownloadIcon, EditIcon } from "@chakra-ui/icons";
+import { DownloadIcon, EditIcon, EmailIcon } from "@chakra-ui/icons";
 import { RESUME_URL } from "../utils/resources";
-import { motion, useViewportScroll } from "framer-motion";
+import { useViewportScroll } from "framer-motion";
 import ProgressBar from "../components/ProgressBar";
 
 type HomePageProps = {
@@ -50,7 +49,7 @@ const Home = ({ data }: HomePageProps) => {
       // h={"100vh"}
       maxH="auto"
       w="full"
-      bgColor={useColorModeValue("gray.100", "gray.700")}
+      bgColor={useColorModeValue("gray.100", "gray.800")}
     >
       <Head>
         <title>ModieJun</title>
@@ -91,7 +90,7 @@ const Home = ({ data }: HomePageProps) => {
             </Text>
             {/* Buttons for funny things */}
             <Text mt={4} fontStyle="italic">
-              My stuff that you might be interested in:
+              Get In touch with me or check out my other stuff
             </Text>
             <HStack w="full" justifyContent="space-around" py={4}>
               <Button
@@ -104,6 +103,14 @@ const Home = ({ data }: HomePageProps) => {
               <Button leftIcon={<EditIcon />} fontWeight="light">
                 <LinkOverlay href="https://blog.modiejun.com" isExternal={true}>
                   My Blog
+                </LinkOverlay>
+              </Button>
+              <Button leftIcon={<EmailIcon />} fontWeight="light">
+                <LinkOverlay
+                  href="mailto:junjielin@modiejun.com"
+                  isExternal={true}
+                >
+                  Mail Me
                 </LinkOverlay>
               </Button>
             </HStack>
@@ -138,14 +145,43 @@ const Home = ({ data }: HomePageProps) => {
               );
             })}
             {/* Images */}
-            <GridItem colSpan={1} rowStart={2} colStart={1}>
+            <GridItem
+              colSpan={1}
+              rowStart={{ base: 1, md: 1 }}
+              colStart={{ md: 2 }}
+            >
+              <HStack w="full" h="full" justifyContent={"center"}>
+                <FadeInY duration={0.8}>
+                  <Box
+                    rounded="lg"
+                    overflow={"hidden"}
+                    h={{ base: "250px" }}
+                    w={{ base: "300px" }}
+                  >
+                    <Image
+                      src="/HK.jpg"
+                      alt="Hong Kong"
+                      objectFit={"cover"}
+                      w="full"
+                      h="full"
+                    />
+                  </Box>
+                </FadeInY>
+              </HStack>
+            </GridItem>
+
+            <GridItem
+              colSpan={1}
+              rowStart={{ base: 3, md: 2 }}
+              colStart={{ md: 1 }}
+            >
               <HStack w="full" h="full" justifyContent={"center"}>
                 <FadeInY duration={0.9}>
                   <Box
                     rounded="lg"
                     overflow={"hidden"}
-                    h={{ base: "350px", md: "350px" }}
-                    w={{ base: "300px", md: "300px" }}
+                    h={{ base: "350px" }}
+                    w={{ base: "300px" }}
                   >
                     <Image
                       src="/graduation.jpeg"
@@ -160,8 +196,39 @@ const Home = ({ data }: HomePageProps) => {
             </GridItem>
           </Grid>
 
-          <Heading as={"h1"}>Tech Stack</Heading>
-          <HStack justifyContent={"space-between"} w="full">
+          <FadeInY>
+            <Heading as={"h1"}>Down &amp; Dirty 💻 </Heading>
+            <VStack spacing={4}>
+              <Text textAlign="justify">
+                I&apos;ve worked with multiple technologies in the development
+                space, mainly on Full Stack Applications. Touching{" "}
+                <Text fontStyle={"italic"} display="inline" as="u">
+                  ReactJS &amp; VueJS
+                </Text>{" "}
+                for the front end and{" "}
+                <Text fontStyle={"italic"} display="inline" as="u">
+                  Springboot &amp; NestJS
+                </Text>{" "}
+                for backend.
+              </Text>
+              <Text textAlign={"justify"}>
+                Other than development i enjoy automating and optimizing things.
+                Ive worked on CI/CD pipelines implementations as well as App
+                Containerisation with Docker. Other honorable mentions would be
+                Automated ETL Pipeline developments for data processing using{" "}
+                <Link
+                  href="https://airflow.apache.org/"
+                  fontStyle={"italic"}
+                  as="u"
+                >
+                  Apache Airflow
+                </Link>
+                .
+              </Text>
+            </VStack>
+          </FadeInY>
+
+          <HStack justifyContent={"space-between"} w="full" py={8}>
             <FadeInView>
               <Image
                 src="/python.png"
@@ -191,11 +258,16 @@ const Home = ({ data }: HomePageProps) => {
                 rounded={"lg"}
               ></Image>
             </FadeInView>
+            <Image
+              src="aws-certified-cloud-practitioner.png"
+              alt="Badge"
+              w="100px"
+            />
           </HStack>
         </VStack>
 
         {/* Footer */}
-        <Box py="5">
+        <Box py="8">
           <HStack justifyContent={"space-between"}>
             <VStack alignItems={"start"}>
               <Link href="https://blog.modiejun.com/about">Contact me</Link>
@@ -222,7 +294,7 @@ const Home = ({ data }: HomePageProps) => {
           </HStack>
         </Box>
         <Text my="" fontStyle="italic" fontWeight="light">
-          @All Rights Reserved JUNJIE LIN 2022
+          All Rights Reserved @ JUNJIE LIN 2022
         </Text>
       </Container>
     </Box>

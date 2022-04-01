@@ -11,6 +11,14 @@
           "Model and design reliable data warehousing strategies on AWS Redshift based on analytic requirements",
           "Solved and enhanced existing multi data-source ETL processing logic for legacy workflow as well as designed and implemented table and data structure migration solutions"
         ]
+      },
+      {
+        "heading": "Intern Developer",
+        "subheading": "Oursky Limited",
+        "date": "2021 FEB - 2021 JUN",
+        "info": [
+          "Responsible for developing the CI/CD  Test and Release  pipeline for IOS Application & Contributed to implementing CloudKit on IOS App and WatchOS Companion"
+        ]
       }
     ]
   },
@@ -22,8 +30,8 @@
         "subheading": "City University of Hong Kong",
         "date": "2020 SEP     -     2021 JUN",
         "info": [
-          "Project Mangement and Quality Assurance",
-          "Business Digital Transformation  - Focusing on business process re-engineering and IT within an organization"
+          "Business Digital Transformation  - Focusing on business process re-engineering and IT within an organization",
+          "Project Mangement and Quality Assurance"
         ]
       },
       {
@@ -31,7 +39,6 @@
         "subheading": "Jinan University (Guangzhou)",
         "date": "2016 SEP     -     2020 JUL",
         "info": [
-          "Modules:   Java Fundamentals , Database Applicatoin Development, Data structures , Algorithm Design",
           "Research Topic (Bachelors Thesis) on Human Activity Recognition on daily activity movements using sampled data from Accelerometer and Gyroscopes of Smartphone devices provided by by the National Natural Science Foundation of China (No. 61501207). Utilized MATLAB for analysing, cleaning and generating feature and Implemented experiments using Python with Pandas, Scikit-learn and TensorFlow Libraries to run prediction models such as Support Vector Machines, Multi-layer Perceptron, Convolutional neural Network."
         ]
       }

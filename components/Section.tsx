@@ -38,7 +38,9 @@ const ContentSection = ({ title, items }: ContentSectionProps) => {
                 {ele.heading}
               </Text>
               <Spacer />
-              <Text fontStyle="italic">{ele.subheading}</Text>
+              <Text fontStyle="italic" textAlign={{ base: "start", md: "end" }}>
+                {ele.subheading}
+              </Text>
             </Stack>
             <Text
               fontWeight="light"
