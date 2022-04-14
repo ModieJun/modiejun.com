@@ -16,40 +16,41 @@ import {
   GridItem,
   Button,
   LinkOverlay,
-} from "@chakra-ui/react";
-import Head from "next/head";
-import { Nav } from "../components/Nav";
-import theme from "../theme/theme";
-import { Data, getJsonFromFile } from "../utils/read_json";
-import ContentSection from "../components/Section";
-import { FadeInView, FadeInY } from "../components/animated/FadeInView";
-import { DownloadIcon, EditIcon, EmailIcon } from "@chakra-ui/icons";
-import { RESUME_URL } from "../utils/resources";
-import { useViewportScroll } from "framer-motion";
-import ProgressBar from "../components/ProgressBar";
+  LinkBox,
+} from '@chakra-ui/react'
+import Head from 'next/head'
+import { Nav } from '../components/Nav'
+import theme from '../theme/theme'
+import { Data, getJsonFromFile } from '../utils/read_json'
+import ContentSection from '../components/Section'
+import { FadeInView, FadeInY } from '../components/animated/FadeInView'
+import { DownloadIcon, EditIcon, EmailIcon } from '@chakra-ui/icons'
+import { RESUME_URL } from '../utils/resources'
+import { useViewportScroll } from 'framer-motion'
+import ProgressBar from '../components/ProgressBar'
 
 type HomePageProps = {
-  data: Data[];
-};
+  data: Data[]
+}
 
 const DownloadResume = () => {
-  var anchor = document.createElement("a");
-  anchor.href = RESUME_URL;
-  anchor.target = "_blank";
-  anchor.download = "JUNJIE_RESUME";
-  anchor.click();
-};
+  var anchor = document.createElement('a')
+  anchor.href = RESUME_URL
+  anchor.target = '_blank'
+  anchor.download = 'JUNJIE_RESUME'
+  anchor.click()
+}
 
 const Home = ({ data }: HomePageProps) => {
-  const textColor = useColorModeValue("gray.700", "gray.100");
-  const { scrollYProgress } = useViewportScroll();
+  const textColor = useColorModeValue('gray.700', 'gray.100')
+  const { scrollYProgress } = useViewportScroll()
 
   return (
     <Box
       // h={"100vh"}
       maxH="auto"
       w="full"
-      bgColor={useColorModeValue("gray.100", "gray.800")}
+      bgColor={useColorModeValue('gray.100', 'gray.800')}
     >
       <Head>
         <title>ModieJun</title>
@@ -63,26 +64,26 @@ const Home = ({ data }: HomePageProps) => {
       <Nav />
 
       {/* Content */}
-      <Container maxW={{ sm: "container.xs", base: "container.lg" }} pb="20">
+      <Container maxW={{ sm: 'container.xs', base: 'container.lg' }} pb="20">
         <VStack spacing={4}>
           {/* Chakra loads from the public directory for the images */}
           <Image
-            mt={{ base: "5", md: "8" }}
+            mt={{ base: '5', md: '8' }}
             src="/profile.jpg"
             alt="Profile Image"
-            boxSize={{ base: "125px", md: "175px" }}
+            boxSize={{ base: '125px', md: '175px' }}
             borderRadius="full"
-            boxShadow={"dark-lg"}
+            boxShadow={'dark-lg'}
           />
           <Heading textColor={textColor} letterSpacing={4}>
-            Junjie LIN
+            JUNJIE LIN
           </Heading>
           <Text letterSpacing={4}>🇭🇰 🇿🇦 🇨🇳</Text>
           <Text textColor={textColor} letterSpacing={4}>
             Developer | Tech..no Funk | bruh
           </Text>
           {/* Description */}
-          <Container maxW={{ sm: "container.sm", base: "container.md" }}>
+          <Container maxW={{ sm: 'container.sm', base: 'container.md' }}>
             <Text letterSpacing={1} textAlign="justify">
               Hi! Hi! I go by Johnson! Im a African-born Chinese curious about
               Tech 📺,, Cloud ☁️ and DevOps 🛠 . Im currently work in the Tech
@@ -119,9 +120,9 @@ const Home = ({ data }: HomePageProps) => {
 
         {/* Accolades */}
         <Divider my={12} />
-        <VStack w={"full"} alignItems="start" spacing={8}>
+        <VStack w={'full'} alignItems="start" spacing={8}>
           <Grid
-            templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2,1fr)" }}
+            templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2,1fr)' }}
             gap={{ base: 16, md: 2 }}
             w="full"
             h="auto"
@@ -142,7 +143,7 @@ const Home = ({ data }: HomePageProps) => {
                     />
                   </FadeInY>
                 </GridItem>
-              );
+              )
             })}
             {/* Images */}
             <GridItem
@@ -150,18 +151,18 @@ const Home = ({ data }: HomePageProps) => {
               rowStart={{ base: 1, md: 1 }}
               colStart={{ md: 2 }}
             >
-              <HStack w="full" h="full" justifyContent={"center"}>
+              <HStack w="full" h="full" justifyContent={'center'}>
                 <FadeInY duration={0.8}>
                   <Box
                     rounded="lg"
-                    overflow={"hidden"}
-                    h={{ base: "250px" }}
-                    w={{ base: "300px" }}
+                    overflow={'hidden'}
+                    h={{ base: '250px' }}
+                    w={{ base: '300px' }}
                   >
                     <Image
                       src="/HK.jpg"
                       alt="Hong Kong"
-                      objectFit={"cover"}
+                      objectFit={'cover'}
                       w="full"
                       h="full"
                     />
@@ -175,18 +176,18 @@ const Home = ({ data }: HomePageProps) => {
               rowStart={{ base: 3, md: 2 }}
               colStart={{ md: 1 }}
             >
-              <HStack w="full" h="full" justifyContent={"center"}>
+              <HStack w="full" h="full" justifyContent={'center'}>
                 <FadeInY duration={0.9}>
                   <Box
                     rounded="lg"
-                    overflow={"hidden"}
-                    h={{ base: "350px" }}
-                    w={{ base: "300px" }}
+                    overflow={'hidden'}
+                    h={{ base: '350px' }}
+                    w={{ base: '300px' }}
                   >
                     <Image
                       src="/graduation.jpeg"
                       alt="Graduation Photo"
-                      objectFit={"cover"}
+                      objectFit={'cover'}
                       w="full"
                       h="full"
                     />
@@ -197,79 +198,74 @@ const Home = ({ data }: HomePageProps) => {
           </Grid>
 
           <FadeInY>
-            <Heading as={"h1"}>Down &amp; Dirty 💻 </Heading>
-            <VStack spacing={4}>
+            <Heading as={'h1'}>Down &amp; Dirty 💻 </Heading>
+            <VStack spacing={4} py={4}>
               <Text textAlign="justify">
                 I&apos;ve worked with multiple technologies in the development
-                space, mainly on Full Stack Applications. Touching{" "}
-                <Text fontStyle={"italic"} display="inline" as="u">
+                space, mainly on Full Stack Applications. Touching{' '}
+                <Text fontStyle={'italic'} display="inline" as="u">
                   ReactJS &amp; VueJS
-                </Text>{" "}
-                for the front end and{" "}
-                <Text fontStyle={"italic"} display="inline" as="u">
+                </Text>{' '}
+                for the front end and{' '}
+                <Text fontStyle={'italic'} display="inline" as="u">
                   Springboot &amp; NestJS
-                </Text>{" "}
+                </Text>{' '}
                 for backend.
               </Text>
-              <Text textAlign={"justify"}>
-                Other than development i enjoy automating and optimizing things.
-                Ive worked on CI/CD pipelines implementations as well as App
-                Containerisation with Docker. Other honorable mentions would be
-                Automated ETL Pipeline developments for data processing using{" "}
+              <Text textAlign={'justify'}>
+                Other than development I enjoy automatoin and optimizing things.
+                Ive worked on CI/CD pipelines implementations using GitLab as
+                well as application Containerisation with{' '}
+                <Link href="www.docker.com" as={'u'} fontStyle="italic">
+                  Docker
+                </Link>
+                . Other honorable mentions would be Automated ETL Pipeline
+                developments for data processing using{' '}
                 <Link
                   href="https://airflow.apache.org/"
-                  fontStyle={"italic"}
+                  fontStyle={'italic'}
                   as="u"
                 >
                   Apache Airflow
                 </Link>
-                .
+                . Though I have just started my career in the Technology space.
+                I look forward to growing and becoming a reliable individual who
+                can come up with solutoins for a problem
               </Text>
             </VStack>
           </FadeInY>
 
-          <HStack justifyContent={"space-between"} w="full" py={8}>
+          <Heading as={'h3'} size="md">
+            Certs that i have 📜
+          </Heading>
+          <HStack justifyContent={'space-around'} w="full" py={8}>
             <FadeInView>
-              <Image
-                src="/python.png"
-                boxSize={"auto"}
-                alt="python image"
-                w="100px"
-                rounded={"lg"}
-              ></Image>
+              <LinkBox>
+                <Image
+                  src="aws-certified-cloud-practitioner.png"
+                  alt="Badge"
+                  w="100px"
+                />
+                <LinkOverlay href="https://www.credly.com/badges/f1f3d552-604d-4cec-be94-6be417e2f36e/public_url"></LinkOverlay>
+              </LinkBox>
             </FadeInView>
-            <FadeInView duration={0.7}>
-              <Image
-                src="/docker.webp"
-                boxSize={"auto"}
-                alt="Docker image"
-                w="100px"
-                fit={"cover"}
-                rounded={"lg"}
-              ></Image>
+            <FadeInView>
+              <LinkBox>
+                <Image
+                  src="alteryx-designer-core-certification.png"
+                  alt="Badge"
+                  w="100px"
+                />
+                <LinkOverlay href="https://www.credly.com/badges/df2015fc-42c5-49de-b9ac-d27ae9d1bed3/public_url"></LinkOverlay>
+              </LinkBox>
             </FadeInView>
-            <FadeInView duration={0.8}>
-              <Image
-                src="/nestjs.svg"
-                boxSize={"auto"}
-                w="100px"
-                alt="Nestjs image"
-                fit={"cover"}
-                rounded={"lg"}
-              ></Image>
-            </FadeInView>
-            <Image
-              src="aws-certified-cloud-practitioner.png"
-              alt="Badge"
-              w="100px"
-            />
           </HStack>
         </VStack>
 
         {/* Footer */}
         <Box py="8">
-          <HStack justifyContent={"space-between"}>
-            <VStack alignItems={"start"}>
+          <HStack justifyContent={'space-between'}>
+            <VStack alignItems={'start'}>
               <Link href="https://blog.modiejun.com/about">Contact me</Link>
               <Link href="https://blog.modiejun.com">Blog</Link>
             </VStack>
@@ -298,16 +294,16 @@ const Home = ({ data }: HomePageProps) => {
         </Text>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
 export const getStaticProps = () => {
-  const data = getJsonFromFile();
+  const data = getJsonFromFile()
   return {
     props: {
       data: data,
     },
-  };
-};
+  }
+}
 
-export default Home;
+export default Home

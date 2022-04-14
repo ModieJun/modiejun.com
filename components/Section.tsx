@@ -25,7 +25,7 @@ type ContentSectionProps = {
 const ContentSection = ({ title, items }: ContentSectionProps) => {
   const textColor = useColorModeValue("gray.700", "gray.100");
   return (
-    <VStack w={"full"} alignItems="start" spacing={4}>
+    <VStack w={"full"} alignItems="start" spacing={4} py={8}>
       <Heading fontSize={"2xl"}>{title.toUpperCase()}</Heading>
       {items.map((ele) => {
         return (

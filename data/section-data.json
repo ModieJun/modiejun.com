@@ -1,15 +1,15 @@
 [
   {
-    "title": "experience",
+    "title": "Industry experience",
     "content": [
       {
         "heading": "Application Consultant ",
         "subheading": "IBM-CPA Business Intelligence Team",
         "date": "2021 SEP     -      Present",
         "info": [
-          "Responsible for engineering, developing and integrating data ETL processing pipelines using Airflow(Python), Informatica and deploying onto AWS Ec2, DynamoDB and Redshift",
-          "Model and design reliable data warehousing strategies on AWS Redshift based on analytic requirements",
-          "Solved and enhanced existing multi data-source ETL processing logic for legacy workflow as well as designed and implemented table and data structure migration solutions"
+          "Under the Data team, I was responsible for engineering, developing and integrating data ETL processing pipelines using Airflow (Python), Informatica and deploying them onto AWS Ec2 as well as DynamoDB and Redshift.",
+          "Other than development i was challanged to model and design reliable data warehousing ETL storage strategies such as Slowly Changing Data (SCD) on AWS Redshift as well as ensure performance and analytic capabilites of the data were met",
+          "I also took lead in solving and enhancing existing multi data-source ETL processing logic for legacy workflow as well as designed and implemented table and data structure migration solutions"
         ]
       },
       {
@@ -17,21 +17,20 @@
         "subheading": "Oursky Limited",
         "date": "2021 FEB - 2021 JUN",
         "info": [
-          "Responsible for developing the CI/CD  Test and Release  pipeline for IOS Application & Contributed to implementing CloudKit on IOS App and WatchOS Companion"
+          "During my internship i was responsible for developing the CI/CD Test and Release pipeline for the flagship IOS Application & also implemented CloudKit Data Sync on IOS App and WatchOS Companion"
         ]
       }
     ]
   },
   {
-    "title": "education",
+    "title": "Education",
     "content": [
       {
         "heading": "MSc Business Information Systems ",
         "subheading": "City University of Hong Kong",
         "date": "2020 SEP     -     2021 JUN",
         "info": [
-          "Business Digital Transformation  - Focusing on business process re-engineering and IT within an organization",
-          "Project Mangement and Quality Assurance"
+          "Business Digital Transformation  - Focusing on business process re-engineering and IT within an organization"
         ]
       },
       {

@@ -1,12 +1,12 @@
-import { motion } from "framer";
-import { ReactChild, ReactChildren, ReactNode } from "react";
+import { motion } from 'framer'
+import { ReactChild, ReactChildren, ReactNode } from 'react'
 
-const defaultDuration = 0.5;
+const defaultDuration = 0.5
 
 type FadeInViewProps = {
-  duration?: number;
-  children: ReactNode;
-};
+  duration?: number
+  children: ReactNode
+}
 
 export const FadeInView = ({ duration, children }: FadeInViewProps) => {
   return (
@@ -22,13 +22,13 @@ export const FadeInView = ({ duration, children }: FadeInViewProps) => {
     >
       {children}
     </motion.div>
-  );
-};
+  )
+}
 
 type FadeInYProps = {
-  duration?: number;
-  children: ReactNode;
-};
+  duration?: number
+  children: ReactNode
+}
 export const FadeInY = ({ duration, children }: FadeInYProps) => {
   return (
     <motion.div
@@ -37,11 +37,11 @@ export const FadeInY = ({ duration, children }: FadeInYProps) => {
       transition={{ duration: duration ?? defaultDuration }}
       variants={{
         visible: { opacity: 1, scale: 1, y: 0 },
-        hidden: { opacity: 0, scale: 1, y: 100 },
+        hidden: { opacity: 0, scale: 1, y: 50 },
       }}
       viewport={{ once: true }}
     >
       {children}
     </motion.div>
-  );
-};
+  )
+}

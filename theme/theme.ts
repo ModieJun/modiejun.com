@@ -1,15 +1,15 @@
-import { extendTheme, type ThemeConfig, theme as base } from "@chakra-ui/react";
+import { extendTheme, type ThemeConfig, theme as base } from '@chakra-ui/react'
 
 const config = {
-  initialColorMode: "light",
+  initialColorMode: 'dark',
   useSystemColorMode: false,
-};
+}
 
 const theme = extendTheme({
   config,
   fonts: {
-    heading: `'IBM Plex Sans', sans-serif,${base.fonts?.heading}`,
-    body: `'IBM Plex Sans', sans-serif,${base.fonts?.heading}`,
+    heading: `Roboto ,'IBM Plex Sans', sans-serif,${base.fonts?.heading}`,
+    body: `Roboto,'IBM Plex Sans', sans-serif,${base.fonts?.heading}`,
   },
-});
-export default theme;
+})
+export default theme
