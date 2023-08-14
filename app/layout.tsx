@@ -1,8 +1,11 @@
+import React from "react";
+
 type LayoutProps = {
     children: React.ReactNode,
 };
 
 import "../theme/global.css";
+import Link from "next/link";
 
 const Layout = ({
                     children
@@ -12,12 +15,13 @@ const Layout = ({
         <body>
             <div className="min-h-screen bg-gray-50">
                 {/* header */}
-                <div className="max-w-screen-lg mx-auto w-full flex py-4">
-                    Navigation Bar
+                <div className="max-w-screen-lg mx-auto w-full flex py-4 justify-between">
+                    <Link href="/">Home</Link>
+                    <Link href="/about" prefetch={true}>About</Link>
                 </div>
                 {/* Body */}
                 <main
-                    className="max-w-screen-lg py-8 mx-auto my-8 rounded-md outline-[1.5] outline-gray-300 outline p-4">{children}</main>
+                    className="">{children}</main>
                 {/* Footer */}
                 <div className="max-w-screen-lg w-full grid grid-cols-2 md:grid-cols-3 mx-auto">
                     Footer
