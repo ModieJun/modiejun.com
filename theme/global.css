@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Roboto&display=swap");
+
+.button{
+    @apply max-w-fit px-4 py-2 outline outline-[0.5] outline-gray-600 hover:bg-gray-600 hover:text-gray-100 hover:underline
+}
