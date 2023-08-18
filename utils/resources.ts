@@ -21,7 +21,7 @@ export type Article = {
     content: string;
 };
 
-const API_KEY = process.env.NEWS_API_KEY
+const API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY
 const BASE_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}`
 
 export const fetchNews = async (q:string,pageSize?: number): Promise<ArticleResponse> => {
