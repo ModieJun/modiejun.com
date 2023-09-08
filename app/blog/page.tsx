@@ -16,8 +16,8 @@ const Blog = () => {
         });
     }, [searchQuery$])
     return (
-        <div className="flex flex-col sm:flex-row sm:space-x-16">
-            <div className="flex flex-1 flex-col overflow-auto py-4 ">
+        <div className="flex flex-col w-full sm:flex-row sm:space-x-16">
+            <div className="flex flex-grow flex-col overflow-auto py-4 gap-y-2">
                 <h1 className="text-2xl">Blog</h1>
                 <input type="search" onChange={(e) => {
                     searchQuery$.next(e.target.value)

@@ -13,7 +13,7 @@ const Layout = ({
             {/* header */}
             <NavBar/>
             {/* Body */}
-            <main className="max-w-screen-lg mx-auto">{children}</main>
+            <main className="max-w-screen-lg w-full mx-auto">{children}</main>
             {/* Footer */}
             <div className="max-w-screen-lg w-full grid grid-cols-2 md:grid-cols-3 mx-auto">
                 Footer

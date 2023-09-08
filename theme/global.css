@@ -17,7 +17,7 @@ a{
 }
 
 input {
-    @apply  max-w-md py-3 px-4 block w-full border-gray-300 border-[1px] rounded-md text-sm  focus:border-blue-500 focus:ring-blue-500;
+    @apply  max-w-lg py-3 px-4 block w-full border-gray-300 border-[1px] rounded-md text-sm  focus:border-blue-500 focus:ring-blue-500;
 }
 
 th{
