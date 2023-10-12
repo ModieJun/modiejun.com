@@ -7,9 +7,12 @@ export const metadata: Metadata = {
 }
 
 const SubDomain = ({params}:any) => {
-    console.log(`params`)
+    console.log(params)
     // const eventRsvp: EventRSVP = {attendanceStatus: "", id: "", memberId: "", responseDate: ""};
     // console.log(eventRsvp);
+
+    const authorize =`${process.env.TS_AUTH_API}?&client_id=${process.env.TS_CLIENT_ID}&client_secret=${process.env.TS_CLIENT_SECRET}` +
+            `&redirect_uri=http://localhost:8080/dashboard&response_type=code`
 
     return (
         <div className="min-h-screen max-w-screen-sm mx-auto flex flex-col flex-grow justify-center py-4 ">
@@ -18,7 +21,7 @@ const SubDomain = ({params}:any) => {
                     <Link className="font-bold" href="/">Johnson Lin Subdomain</Link>
                 </div>
                 <p>dark</p>
-                <Link href="/about">about</Link>
+                <a href={process.env.TS_AUTH_API}>about</a>
                 <div className="flex items-center">
                     instagram
                 </div>

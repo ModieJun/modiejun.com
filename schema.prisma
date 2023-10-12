@@ -1,0 +1,18 @@
+
+// Client connection used
+generator client {
+  provider = "prisma-client-js"
+}
+
+// DB Information
+datasource db {
+  provider  = "postgresql"
+  url       = env("TEST_PRISMA_URL") // uses connection pooling
+  directUrl = env("TEST_URL_NON_POOLING") // uses a direct connection
+}
+
+model Test {
+  id            String       @default(cuid()) @id
+  name          String?
+  date          DateTime?
+}
